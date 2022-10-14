@@ -1,4 +1,4 @@
-public class Lesson1 {
+public class Lesson2 {
     public static void main(String[] args) {
     byte a16 = 0xC;
     byte a10 = 12;
