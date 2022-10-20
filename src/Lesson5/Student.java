@@ -11,9 +11,10 @@ double averageLanguage;
 
 static int NUMBER_OF_SUBJECTS = 3;
 
-    public double getAverageGrade(double averageMath, double averageEconomy, double averageLanguage)
+    public double getAverageGrade(Student student)
     {
-        double avGrade = (averageMath + averageEconomy + averageLanguage) / NUMBER_OF_SUBJECTS;
+
+        double avGrade = (student.averageMath + student.averageEconomy + student.averageLanguage) / NUMBER_OF_SUBJECTS;
         return avGrade;
     }
 }
@@ -49,9 +50,9 @@ class StudentTest {
         John.averageEconomy = 3.8;
         John.averageLanguage = 3.0;
 
-        System.out.println(Alice.name + " Average grade " + Alice.getAverageGrade(Alice.averageMath, Alice.averageEconomy, Alice.averageLanguage));
-        System.out.println(Bob.name + " Average grade " + Bob.getAverageGrade(Bob.averageMath, Bob.averageEconomy, Bob.averageLanguage));
-        System.out.println(John.name + " Average grade " + John.getAverageGrade(John.averageMath, John.averageEconomy, John.averageLanguage));
+        System.out.println(Alice.name + " Average grade " + Alice.getAverageGrade(Alice));
+        System.out.println(Bob.name + " Average grade " + Bob.getAverageGrade(Bob));
+        System.out.println(John.name + " Average grade " + John.getAverageGrade(John));
     }
 }
 
