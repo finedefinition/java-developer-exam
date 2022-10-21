@@ -21,6 +21,7 @@ public class Employee {
 
 
     double doubleSalary(double salary) {
+
         return salary * 2;
     }
 }
@@ -30,7 +31,7 @@ public class Employee {
         public static void main(String[] args) {
             Employee e1 = new Employee(24, "Lennon", 19, 1900.00, "IT");
             Employee e2 = new Employee(25, "Shannon", 30, 2100.00, "PR");
-            System.out.println(e1.surname + " Old salary: " + e1.salary + " New salary: " + e1.doubleSalary(e1.salary));
+
             System.out.println(e2.surname + " Old salary: " + e2.salary + " New salary: " + e2.doubleSalary(e2.salary));
 
         }
