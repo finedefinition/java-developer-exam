@@ -6,17 +6,12 @@ public class Email {
         for (int i = 0; i < a.length(); i++) {
             t = a.charAt(i);
             if (t == '@') {
+                i++;
                 for (; t != '.'; i++) {
-                    System.out.print(a.charAt(i+1));
-                    t = a.charAt(i+2);
+                        System.out.print(a.charAt(i));
+                        t = a.charAt(i+1);
                 }
                 System.out.println();
-             /*   do {
-                    i++;
-                    System.out.print(a.charAt(i));
-                    t = a.charAt(i);
-                } while (t != '.');
-             */
             }
         }
     }
