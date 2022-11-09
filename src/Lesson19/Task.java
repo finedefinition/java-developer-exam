@@ -1,47 +1,35 @@
 package Lesson19;
 
-import java.util.Arrays;
-import java.util.StringTokenizer;
-
-/*
-public class Solution {
-    public static void main(String[] args) {
-        String packagePath = "java/util.stream/src|main";
-        String[] tokens = getTokens(packagePath, "/.,");
-        System.out.println(Arrays.toString(tokens));
-    }
-
-    public static String[] getTokens(String query, String delimiter) {
-
-        String[] result  = new String[tokenizer.countTokens()];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = tokenizer.nextToken();
-        }
-
-        return result;
-    }
-}
- */
 public class Task {
-    public static String[] abc(String[]... args) {
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < args.length; i++) {
-            for (int j = 0; j < args[i].length; j++) {
-                builder.append(i + "/");
+    public static String[] abc(String[]... arrays) {
+        int length = 0;
+        for (String[] a : arrays) {
+            length += a.length;
+        }
+        String[] target = new String[length];
+        int count = 0;
+        for (String[] a : arrays) {
+            for (String s : a) {
+                target[count] = s;
+                count++;
             }
         }
-        String middle = new String(builder);
-        StringTokenizer tokenizer = new StringTokenizer(middle, "/");
-        String[] result  = new String[tokenizer.countTokens()];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = tokenizer.nextToken();
+        for (String s : target) {
+            System.out.print(s + ", ");
         }
-        System.out.println(Arrays.toString(result));
-        return result;
+        return target;
     }
 
     public static void main(String[] args) {
-        abc(args);
+        String[] target = abc(new String[]{"privet", "poka", "ok"}, new String[]{"on", "ona", "oni"});
+//        for (String s : args) {
+//            for (int i = 0; i < target.length; i++) {
+//                if (s.equals(target[i])) {
+//                    target[i] = null;
+//                }
+//            }
+//        }
 
+        }
     }
-}
+
