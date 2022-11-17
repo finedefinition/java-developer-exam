@@ -40,10 +40,10 @@ public class Student {
     }
 
 
-    public void showInfo(Student s) {
-        System.out.println("Name is: " + s.getName());
-        System.out.println("Course is: " + s.getCourse());
-        System.out.println("Grade is: " + s.getGrade());
+    public void showInfo() {
+        System.out.println("Name is: " + getName());
+        System.out.println("Course is: " + getCourse());
+        System.out.println("Grade is: " + getGrade());
     }
 }
     class StudentTest {
@@ -51,7 +51,7 @@ public class Student {
             Student s1 = new Student();
             s1.setName(new StringBuilder("Ivan"));
             s1.setCourse(3);
-            s1.setGrade(10);
-            s1.showInfo(s1);
+            s1.setGrade(12);
+            s1.showInfo();
         }
     }
