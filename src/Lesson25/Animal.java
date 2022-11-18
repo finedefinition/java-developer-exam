@@ -1,103 +1,115 @@
 package Lesson25;
 
+import Lesson10.p1.A;
+
 public class Animal {
-    static String a = "Static variable base class";
+    static String a = "SVBC"; //Static variable base class
+    String a1 = "NSVBC"; //Non- static variable base class
 
-    static {
-        a += " + static initializer";
-        System.out.println(a + "      ////1 loop");
+    static { //Static initializer base class
+        a += " + SIBC";
+        System.out.println(a + " //Static initializer base class");
     }
 
-    String a1 = "Non- static variable base class";
-
-    {
-        a += " + non static initializer";
-        a1 += " + non static initializer";
-        System.out.println(a + "      ////2 loop");
-        System.out.println(a1 + "      ////2a loop");
+    { //non static initializer
+        a += " + NSIBC";
+        a1 += " + NSIBC";
+        System.out.println(a + " //Non-Static initializer base class");
+        System.out.println(a1 + " //Non-Static initializer base class");
 
     }
 
-
-    public Animal(String a1) {
+    public Animal(String a1) { //CONSTRUCTOR BASE CLASS
         this.a1 = a1;
-        a += "+ constructor changes ";
-        a1 += "+ constructor changes ";
-        System.out.println(a + "      ////CONSTRUCTOR BASE CLASS loop");
-        System.out.println(a1 + "      ////CONSTRUCTOR BASE CLASS loop");
+        a += " + CBC ";
+        a1 += " + CBC ";
+        System.out.println(a + "//CONSTRUCTOR BASE CLASS");
+        System.out.println(a1 + "//CONSTRUCTOR BASE CLASS");
     }
 
-    static void abc() {
-        a += "+ static method base class changes ";
-        System.out.println(a + "      ////5 loop");
+    static void abc() { // Static method base class
+        a += " + SMBC ";
+        System.out.println(a + " //Static method BASE CLASS");
     }
 
-    void def() {
-        a += "+ non static method base class changes";
-        a1 += "+ non static method base class changes";
-        System.out.println(a + "      ///6 loop");
-        System.out.println(a1 + "      ////7 loop");
+    void def() { // Non static method base class
+        a += " + NSMBC";
+        a1 += " + NSMBC";
+        System.out.println(a + " //Non - Static method BASE CLASS");
+        System.out.println(a1 + " //Non - Static method BASE CLASS");
     }
 
     static class Pet1 extends Animal {
-        static String a = "Static variable child class";
-
-        static {
-            System.out.println("Static initializer child class");
+        static String a = " + SVCC"; //Static variable child class
+        String a1 = "NSVCC";//Non- static variable child class
+        static { // Static initializer child class
+            a += " + SICC";
+            System.out.println(a + " //      SVCC       // Static initializer child class");
+        }
+        { //Non - Static initializer child class
+            a += " + NSICC";
+            a1 += " + NSICC";
+            System.out.println(a + " //       SVCC      // Non- Static initializer child class");
+            System.out.println(a1 + " //       NSVCC      // Non- Static initializer child class");
         }
 
-        String a1 = "Non- static variable child class";
-
-        {
-            System.out.println("Non - Static initializer child class");
-        }
-
-        Pet1(String a) {
+        Pet1(String a) { //Constructor child class
             super(a);
-            a += "+ Constructor child class with static variable";
-            System.out.println(a);
-
+            Pet1.a += " + CCC";
+            Animal.a += " + CCC";
+            a += " + CCC";
+            a1 += " + CCC";
+            System.out.println(Animal.a + " //     SVBC      // Constructor child class");
+            System.out.println(a + " //     NSVCC        // Constructor child class");
+            System.out.println(a1 + " //     NSVCC       // Constructor child class");
         }
 
-        static void abc() {
-            a += "+ static method child class changes";
-            System.out.println("Static method child class");
-
+        static void abc() { //static method child class
+            Animal.a += " + SMCC";
+            a += " + SMCC";
+            System.out.println(a + " //       SVCC      // Static method child class");
+            System.out.println(Animal.a + " //     SVBC        // Static method child class");
         }
 
-        void def() {
-            a += "+ non static method child class changes";
-            System.out.println(a);
-
+        void def() { //non static method child class
+            a += " + NSMCC";
+            Animal.a += " + NSMCC";
+            System.out.println(a  + " //      SVCC       // Non - Static method child class");
+            System.out.println(Animal.a + " //     SVBC        // Non - Static method child class");
         }
-
     }
 
     static class Test {
         public static void main(String[] args) {
 
             Animal animal1 = new Animal("PARAMETR");
-            System.out.println(animal1.a + "      ////PRINT AFTER loop");
-            System.out.println(animal1.a1 + "      ////PRINT AFTER loop");
 
+            System.out.println(Animal.a + "    // SVBC ////PRINT AFTER loop");
+            System.out.println(animal1.a + "    // SVBC ////PRINT AFTER loop");
+            System.out.println(animal1.a1 + "  //  NSVBC  ////PRINT AFTER loop");
+//
             animal1.abc();
             animal1.def();
 
-            Animal animalpet1 = new Pet1("AnimalPet");
-            System.out.println(animalpet1.a);
-            System.out.println(Animal.a);
+           Animal animalpet1 = new Pet1("AnimalPet");
+            System.out.println(Animal.a + "    // SVBC ////PRINT AFTER CHILD loop");
+            System.out.println(animalpet1.a + "    // HIDE !!! SVCC ////PRINT AFTER CHILD loop");
+            System.out.println(animalpet1.a1 + "  //  instanse variables  ////PRINT AFTER CHILd loop");
+            System.out.println(Pet1.a + "  //  SVCC  ////PRINT AFTER CHILd loop");
 
-            animalpet1.abc();
-            Pet1.abc();
+            animalpet1.abc(); //HIDE METHOD
+            System.out.println("HIDE METHOD UP!!");
             animalpet1.def();
 
-
             Pet1 pet = new Pet1("Pettttt");
+            pet.abc();
+            pet.def();
+            System.out.println(pet.a1);
             System.out.println(pet.a);
-
-
-
-//            System.out.println(pet.a1);
+            System.out.println(animal1.a1);
+            System.out.println(animal1.a);
+            System.out.println(animalpet1.a);
+            System.out.println(animalpet1.a1);
 
         }
     }
