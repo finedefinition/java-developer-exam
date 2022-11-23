@@ -47,9 +47,11 @@ for (Student s : al) {
 //        si.testStudents(list, (Student s) -> {return s.averageGrade < 8.5;});
 //        si.testStudents(list, (Student s) -> {return s.sex == 'm';});
 //        si.testStudents(list, (Student s) -> {return s.sex == 'f';});
-        si.testStudents(list, (Student s) -> {return s.course >= 2;});
-        si.testStudents(list, s -> s.course >= 2);
+//        si.testStudents(list, (Student s) -> {return s.course >= 2;});
+//        si.testStudents(list, s -> s.course >= 2);
         si.testStudents(list, s -> s.course < 4 && s.sex == 'f');
+        si.testStudents(list, ser -> ser.course < 4 && ser.sex == 'f');
+
     }
 
     void printStudent(Student student) {
